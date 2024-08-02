@@ -1,8 +1,11 @@
+import LoginButton from "../../components/auth/LoginButton"
 
 
 const Signin = () => {
   return (
-    <div>Signin</div>
+    <div>
+      <LoginButton/>
+    </div>
   )
 }
 

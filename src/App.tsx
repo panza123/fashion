@@ -11,7 +11,7 @@ import Signin from "./pages/sign/Signin";
 import Layout from "./layout/Layout"; // 
 import Contact from "./pages/Contact/Contact";
 import ProductDetails from "./pages/products/ProductDetails"; // Custom component for product details
-
+import Auth0ProviderWithHistory from "./components/auth/Auth0provider";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -63,8 +63,10 @@ function App() {
   return (
     <>
     <div className="w-full min-h-screen">
-
+    <Auth0ProviderWithHistory>
+    
       <RouterProvider router={router} />
+  </Auth0ProviderWithHistory>,
     </div>
     </>
   );
