@@ -1,15 +1,18 @@
 import { NavLink } from "react-router-dom";
 import nav from "./index"; // Assuming nav is an array of objects with `path` and `name`
-
 import { BsCart2 } from "react-icons/bs";
 import { RxHamburgerMenu, RxCross1 } from "react-icons/rx";
 import { useState } from "react";
+import { useAuth0 } from "@auth0/auth0-react"; // Import the Auth0 hook
 import LoginButton from "../auth/LoginButton";
 import LogoutButton from "../auth/LogoutButton";
 
 export default function Navbar() {
   // State to handle the opening and closing of the mobile menu
   const [menuOpen, setMenuOpen] = useState<boolean>(false);
+
+  // Get Auth0 state and methods
+  const { isAuthenticated } = useAuth0(); // Use Auth0 hook to get authentication status
 
   // Function to toggle the menu state
   function handleClick() {
@@ -41,10 +44,11 @@ export default function Navbar() {
 
       {/* Icons for Sign and Cart on larger screens */}
       <div className="flex items-center gap-4">
-        
-          <LoginButton/>
-          <LogoutButton/>
-      
+        {isAuthenticated ? (
+          <LogoutButton />
+        ) : (
+          <LoginButton />
+        )}
         <NavLink to="cart">
           <BsCart2 size={25} className="hover:text-orange-600" />
         </NavLink>
@@ -80,7 +84,11 @@ export default function Navbar() {
               </NavLink>
             </li>
           ))}
-         
+          {isAuthenticated ? (
+            <LogoutButton />
+          ) : (
+            <LoginButton />
+          )}
         </ul>
       </div>
     </header>
