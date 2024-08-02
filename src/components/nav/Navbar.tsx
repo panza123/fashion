@@ -1,9 +1,11 @@
 import { NavLink } from "react-router-dom";
 import nav from "./index"; // Assuming nav is an array of objects with `path` and `name`
-import { RiContactsLine } from "react-icons/ri";
+
 import { BsCart2 } from "react-icons/bs";
 import { RxHamburgerMenu, RxCross1 } from "react-icons/rx";
 import { useState } from "react";
+import LoginButton from "../auth/LoginButton";
+import LogoutButton from "../auth/LogoutButton";
 
 export default function Navbar() {
   // State to handle the opening and closing of the mobile menu
@@ -39,9 +41,10 @@ export default function Navbar() {
 
       {/* Icons for Sign and Cart on larger screens */}
       <div className="flex items-center gap-4">
-        <NavLink to="sign">
-          <RiContactsLine size={25} className="hover:text-orange-600" />
-        </NavLink>
+        
+          <LoginButton/>
+          <LogoutButton/>
+      
         <NavLink to="cart">
           <BsCart2 size={25} className="hover:text-orange-600" />
         </NavLink>
