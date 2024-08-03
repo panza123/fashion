@@ -59,11 +59,11 @@ const router = createBrowserRouter([
 function App() {
   return (
     <>
-    <div className="w-full min-h-screen">
+    <div className="w-full min-h-screen ">
     <Auth0ProviderWithHistory>
     
       <RouterProvider router={router} />
-  </Auth0ProviderWithHistory>,
+  </Auth0ProviderWithHistory>
     </div>
     </>
   );
