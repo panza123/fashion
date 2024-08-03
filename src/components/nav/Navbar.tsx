@@ -22,7 +22,7 @@ export default function Navbar() {
   return (
     <header className="w-full flex items-center justify-between py-4 px-6 bg-white shadow-md">
       {/* Brand Logo */}
-      <h1 className="text-3xl md:text-4xl font-bold">
+      <h1 className="text-xl md:text-4xl font-bold">
         <span className="text-orange-600">Great</span>Fashion
       </h1>
 
